@@ -18,7 +18,7 @@ logger = logging.getLogger()
 def check_new_tweet(api, since_id):
     logger.info("Retrieving Tweets")
     new_since_id = since_id
-    for tweet in tweepy.Cursor(api.user_timeline, user_id=int(os.getenv("STALK_ID")), since_id=since_id, include_rts=False,
+    for tweet in tweepy.Cursor(api.user_timeline, user_id=int(os.getenv("STALK_ID")), since_id=since_id, include_rts=true,
                                exclude_replies=True, tweet_mode='extended').items(1):
         text = tweet.full_text
         logger.info(text)
